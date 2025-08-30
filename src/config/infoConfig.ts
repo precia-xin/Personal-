@@ -8,7 +8,7 @@ export const headline = 'Software Test Engineer at a healthcare internet company
 export const introduction =
   "Hello everyone! My name is Precia. I’m from Henan province and have been working as a Software Test Engineer at Medcare in Qingdao since 2022."
 export const email = 'eutopia101731@gmail.com'
-// export const githubUsername = 'derekhut'
+export const githubUsername = 'precia-xin'
 
 // about page
 export const aboutMeHeadline = 'Who Are You and Why Should I Care?'
