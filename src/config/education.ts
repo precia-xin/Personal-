@@ -2,7 +2,7 @@
 // education 
 export type EducationItemType = {
     school: string
-//     major: string
+    major?: string
 
     image?: string
     logo: string
