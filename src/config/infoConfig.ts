@@ -3,25 +3,23 @@ export * from './education'
 export * from './career'
 
 // personal info
-export const name = 'Derek Hu'
-export const headline = 'Teacher at Shanghai Soong Ching Ling School.'
+export const name = 'Precia'
+export const headline = 'Software Test Engineer at a healthcare internet company.'
 export const introduction =
-  "Coucou Les Amis! My name is Derek Hu. I'm from Hubei and an alumnus of BUPT, UChicago, and Tsinghua. I’ve been teaching Computer Science at SCLS since 2020."
-export const email = 'tong.hu@scls-sh.org'
-export const githubUsername = 'derekhut'
+  "Hello everyone! My name is Precia. I’m from Henan province and have been working as a Software Test Engineer at Medcare in Qingdao since 2022."
+export const email = 'eutopia101731@gmail.com'
+// export const githubUsername = 'derekhut'
 
 // about page
 export const aboutMeHeadline = 'Who Are You and Why Should I Care?'
 export const aboutParagraphs = [
-  "Coucou Les Amis! My name is Derek Hu. I'm from Hubei and an alumnus of BUPT, UChicago, and Tsinghua. I’ve been teaching Computer Science at SCLS since 2020.",
-  'Currently I am working on a new course called AI Camp, an innovative course where high school students create real-world products and startups while exploring the frontiers of AI.',
-  "I started this blog to share the insights I learn every day. Most blogs focus on education in Artificial Intelligence and general computer science, while others share the life lessons I've learned.",
+  "Shh… it’s a secret."
 ]
 
 // blog
 export const blogHeadLine = "What I've thinking about."
 export const blogIntro =
-  "I've written something about AI, programming and life."
+  "I've written something about testing and Programming."
 
 // social links
 export type SocialLinkType = {
@@ -35,17 +33,20 @@ export const socialLinks: Array<SocialLinkType> = [
   {
     name: 'Tiktok',
     icon: 'tiktok',
-    href: 'https://www.tiktok.com/@harvard?lang=en',
+    href: 'https://www.tiktok.com',
   },
   {
     name: 'Bilibili',
     icon: 'bilibili',
-    href: 'https://space.bilibili.com/349721082',
+    href: 'https://space.bilibili.com',
   },
 ]
 
 // https://simpleicons.org/
 export const techIcons = [
+  'Python',
+  'selenium',
+  'pytest',
   'typescript',
   'javascript',
   'supabase',
@@ -68,4 +69,6 @@ export const techIcons = [
   'ios',
   'apple',
   'wechat',
+
+
 ]
