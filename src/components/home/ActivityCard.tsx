@@ -1,8 +1,16 @@
 "use client"
 
 import { Calendar, Clock, MapPin } from 'lucide-react'
-import { ActivityItemType } from '@/config/projects'
 import Link from 'next/link'
+
+// 定义ActivityItemType类型，替代从projects.ts导入的类型
+type ActivityItemType = {
+  name: string
+  description: string
+  date: string
+  location: string
+  link?: string
+}
 
 export function ActivityCard({ activity, titleAs }: { activity: ActivityItemType, titleAs?: keyof JSX.IntrinsicElements }) {
   let Component = titleAs ?? 'h2'

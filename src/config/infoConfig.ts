@@ -1,4 +1,4 @@
-export * from './projects'
+export { projectHeadLine, projectIntro, projects, type ProjectItemType } from './projects'
 export * from './education'
 export * from './career'
 

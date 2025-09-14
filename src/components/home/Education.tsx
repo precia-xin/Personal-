@@ -43,20 +43,20 @@ function EducationItem({ educationItem }: { educationItem: EducationItemType }) 
       </div>
       <dl className="flex flex-auto flex-wrap gap-x-2">
         <dt className="sr-only">Company</dt>
-        <dd className="w-full flex-none text-sm font-medium">
+        <dd className="w-full flex-none text-base font-medium">
           {educationItem.school}
         </dd>
         {educationItem.major && (  // 只有当 major 存在时才渲染
           <>
             <dt className="sr-only">Title</dt>
-            <dd className="text-xs text-muted-foreground">
+            <dd className="text-sm text-muted-foreground">
               {educationItem.major}
             </dd>
           </>
         )}
         <dt className="sr-only">Date</dt>
         <dd
-          className="ml-auto text-xs text-muted-foreground"
+          className="ml-auto text-sm text-muted-foreground"
           aria-label={`${educationItem.start} until ${educationItem.end}`}
         >
           {educationItem.start} - {educationItem.end}
@@ -72,7 +72,7 @@ export default function Education() {
 
   return (
     <div className="rounded-2xl border border-muted shadow-sm p-6">
-      <h2 className="flex text-sm font-semibold">
+      <h2 className="flex text-base font-semibold">
         <Student size={24} weight="duotone" />
         <span className="ml-3">Education</span>
       </h2>

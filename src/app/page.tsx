@@ -3,15 +3,14 @@ import Newsletter from '@/components/home/Newsletter'
 import Career from '@/components/home/Career'
 import Education from '@/components/home/Education'
 import SocialLinks from '@/components/home/SocialLinks'
+import Skills from '@/components/home/Skills'
 import { headline, introduction } from '@/config/infoConfig'
 import { BlogCard } from '@/components/home/BlogCard'
 import { getAllBlogs, type BlogType } from '@/lib/blogs'
 import { ProjectCard } from '@/components/project/ProjectCard'
-import { ActivityCard } from '@/components/home/ActivityCard'
 import { projectHeadLine, projectIntro, projects, blogHeadLine, blogIntro, techIcons } from '@/config/infoConfig'
-import { awards, awardsHeadLine, awardsIntro, activities, activitiesHeadLine, activitiesIntro } from '@/config/projects'
 import IconCloud from "@/components/ui/icon-cloud"
-import { Award, Briefcase, Heart } from 'lucide-react'
+import { Briefcase } from 'lucide-react'
 
 export default async function Home() {
   let blogList = (await getAllBlogs()).slice(0, 4)
@@ -35,21 +34,8 @@ export default async function Home() {
           </div>
         </div>
 
-        {/* Awards */}
-        <div className="mx-auto flex flex-col max-w-xl gap-6 lg:max-w-none my-4 py-8 border-t border-muted">
-          <h2 className="flex flex-row items-center justify-start gap-2 text-xl font-semibold tracking-tight md:text-3xl opacity-80 mb-4">
-            <Award size={28}/>
-            {awardsHeadLine}
-          </h2>
-          <ul
-            role="list"
-            className="grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 md:grid-cols-3"
-          >
-            {awards.map((award) => (
-              <ActivityCard key={award.name} activity={award} titleAs='h3'/>
-            ))}
-          </ul>
-        </div>
+        {/* Skills Section */}
+        <Skills />
 
         {/* Research & Projects */}
         <div className="mx-auto flex flex-col max-w-xl gap-6 lg:max-w-none my-4 py-8 border-t border-muted">
@@ -57,7 +43,7 @@ export default async function Home() {
             <Briefcase size={28}/>
             {projectHeadLine}
           </h2>
-          <p className="text-base text-muted-foreground max-w-2xl mb-8">
+          <p className="text-lg text-muted-foreground max-w-2xl mb-8">
             {projectIntro}
           </p>
           <ul
@@ -70,31 +56,14 @@ export default async function Home() {
           </ul>
         </div>
 
-        {/* Hobbies & Volunteer */}
-        <div className="mx-auto flex flex-col max-w-xl gap-6 lg:max-w-none my-4 py-8 border-t border-muted">
-          <h2 className="flex flex-row items-center justify-start gap-2 text-xl font-semibold tracking-tight md:text-3xl opacity-80 mb-4">
-            <Heart size={28}/>
-            {activitiesHeadLine}
-          </h2>
-          <p className="text-base text-muted-foreground max-w-2xl mb-8">
-            {activitiesIntro}
-          </p>
-          <ul
-            role="list"
-            className="grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 md:grid-cols-3"
-          >
-            {activities.map((activity) => (
-              <ActivityCard key={activity.name} activity={activity} titleAs='h3'/>
-            ))}
-          </ul>
-        </div>
+
 
         {/* Blog Section */}
         <div className="mx-auto flex flex-col max-w-xl gap-6 py-8 my-8 lg:max-w-none border-t border-muted">
-          <h2 className="flex flex-row items-center justify-start gap-2 text-xl font-semibold tracking-tight md:text-3xl opacity-80 mb-4">
+          <h2 className="flex flex-row items-center justify-start gap-2 text-xl font-semibold tracking-tight md:text-3xl text-foreground opacity-80 mb-4">
             {blogHeadLine}
           </h2>
-          <p className="text-base text-muted-foreground max-w-2xl mb-8">
+          <p className="text-lg text-muted-foreground max-w-2xl mb-8">
             {blogIntro}
           </p>
         </div>

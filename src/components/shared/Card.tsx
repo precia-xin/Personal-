@@ -48,7 +48,7 @@ Card.Title = function CardTitle<T extends React.ElementType = 'h2'>({
   let Component = as ?? 'h2'
 
   return (
-    <Component className="text-base font-semibold tracking-tight">
+    <Component className="text-base sm:text-lg font-semibold tracking-tight text-foreground">
       {href ? <Card.Link href={href}>{children}</Card.Link> : children}
     </Component>
   )
@@ -60,7 +60,7 @@ Card.Description = function CardDescription({
   children: React.ReactNode
 }) {
   return (
-    <p className="relative z-10 mt-2 text-sm text-muted-foreground">
+    <p className="relative z-10 mt-2 text-base text-muted-foreground">
       {children}
     </p>
   )
@@ -70,7 +70,7 @@ Card.Cta = function CardCta({ children }: { children: React.ReactNode }) {
   return (
     <div
       aria-hidden="true"
-      className="relative z-10 mt-4 flex items-center text-sm font-medium text-primary"
+      className="relative z-10 mt-4 flex items-center text-base font-medium text-primary"
     >
       {children}
       <ChevronRightIcon className="ml-1 h-4 w-4 stroke-current" />
@@ -94,7 +94,7 @@ Card.Eyebrow = function CardEyebrow<T extends React.ElementType = 'p'>({
     <Component
       className={clsx(
         className,
-        'relative z-10 order-first mb-3 flex items-center text-sm text-muted-foreground',
+        'relative z-10 order-first mb-3 flex items-center text-base text-muted-foreground',
         decorate && 'pl-3.5',
       )}
       {...props}

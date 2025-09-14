@@ -4,34 +4,8 @@ export type ProjectItemType = {
   description: string
   link: { href: string; label: string }
   tags: string[]
+  icon: string // 添加图标字段
 }
-
-export type ActivityItemType = {
-  name: string
-  description: string
-  date: string
-  location: string
-  link?: string
-}
-
-// Awards
-export const awardsHeadLine = "Awards & Honors"
-export const awardsIntro = "Recognition for academic and professional achievements."
-
-export const awards: Array<ActivityItemType> = [
-//   {
-//     name: 'Outstanding Teacher Award',
-//     description: '',
-//     date: '2024',
-//     location: 'SCLS, Shanghai',
-//   },
-//   {
-//     name: 'Zhui Ying Award',
-//     description: '',
-//     date: '2023',
-//     location: 'Qingpu, Shanghai',
-//   },
-]
 
 // Research & Projects
 export const projectHeadLine = "Projects"
@@ -39,64 +13,31 @@ export const projectIntro = "Technical projects I've worked on."
 
 export const projects: Array<ProjectItemType> = [
   {
-    name: 'Oral health management platform',
-    description: 'A one-stop closed-loop platform connecting parents, schools, hospitals, government and project teams for fully online record-keeping, booking, treatment and quality control.',
-    link: { href: 'www.baidu.com', label: 'View Project' },
-    tags: ['App Testing', 'Web Testing', 'Automation Testing']
+    name: '口腔健康管理平台',
+    description: '连接家长、学校、医院、政府与项目团队的一站式闭环平台，实现全流程在线建档、预约、治疗与质控。',
+    link: { href: '/projects/oral-health-management', label: '查看项目' },
+    tags: ['App测试', 'Web测试', '自动化测试'],
+    icon: 'shield' // 管理平台用保护盾图标
   },
   {
-    name: 'Oral-AI Diagnosis Platform',
-    description: 'Instant oral self-check and smart Q&A powered by CV & NLP',
-    link: { href: 'www.baidu.com', label: 'View Project' },
-    tags: ["App Testing",
-"Web Testing",
-"Tablet Testing",
-"API Automation",
-"Performance Testing",
-"Python+Pytest",
-"JMeter",
-"CV/NLP Algorithm Validation"]
+    name: '口腔颌面外科AI诊断平台',
+    description: '通过计算机视觉与自然语言处理技术，实现口腔自助快检与智能问答。',
+    link: { href: '/projects/oral-maxillofacial-ai', label: '查看项目' },
+    tags: ['App测试', 'Web测试', '平板测试', '接口自动化', '性能测试', 'Python+Pytest', 'JMeter', 'CV/NLP算法验证'],
+    icon: 'brain' // AI诊断用大脑图标
   },
   {
-    name: 'Oral QC System',
-    description: 'City-wide web QC platform providing real-time evaluation and closed-loop improvement for three oral specialties.',
-    link: { href: 'www.baidu.com', label: 'View Project' },
-    tags: ["Web Testing", "API Testing", "Performance Testing", "Security Testing", "Test Documentation", "Concurrency Testing"]
+    name: '口腔质控系统',
+    description: '全市级Web质控平台，为三大口腔专科提供实时评估与闭环改进。',
+    link: { href: '/projects/oral-quality-control', label: '查看项目' },
+    tags: ['Web测试', '接口测试', '性能测试', '安全测试', '测试文档', '并发测试'],
+    icon: 'shield-check' // 质控系统用检查盾牌图标
   },
   {
-    name: 'Oral-Maxillofacial AI EMR Assistant',
-    description: 'Web-based AI EMR assistant auto-generates standardized records and provides end-to-end quality control for digital oral-maxillofacial workflows.',
-    link: { href: 'www.baidu.com', label: 'View Project' },
-    tags: ["Web Testing", "Performance Testing", "JMeter", "Pytest+Requests", "AI API Validation", "Security Testing", "Test Documentation"]
-  },
-]
-
-// Hobbies & Volunteer
-export const activitiesHeadLine = "Hobbies & Volunteer"
-export const activitiesIntro = "Personal interests and community contributions."
-
-export const activities: Array<ActivityItemType> = [
-//   {
-//     name: 'Python Workshop',
-//     description:
-//       'Teaching basic Python programming concepts to beginners. Covering variables, control flow, and functions.',
-//     date: '2024-02-24',
-//     location: 'Shanghai',
-//     link: 'https://example.com/python-workshop',
-//   },
-//   {
-//     name: 'AI Ethics Discussion',
-//     description:
-//       'A group discussion about the ethical implications of AI development and its impact on society.',
-//     date: '2024-03-01',
-//     location: 'Shanghai',
-//     link: 'https://example.com/ai-ethics',
-//   },
-//   {
-//     name: 'Code Review Session',
-//     description:
-//       'Helping students improve their coding skills through peer code review and best practices sharing.',
-//     date: '2024-03-15',
-//     location: 'Shanghai',
-//   },
+    name: '口腔智慧诊断平台',
+    description: '平台用CV识别牙位与病灶，一键生成报告；NLP机器人秒答口腔问题。',
+    link: { href: '/projects/oral-smart-diagnosis', label: '查看项目' },
+    tags: ['性能测试', 'Pytest+Requests', 'AI接口验证', '安全测试', '测试文档'],
+    icon: 'zap' // 智慧诊断用闪电图标
+  }
 ]
