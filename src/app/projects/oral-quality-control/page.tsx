@@ -31,46 +31,45 @@ export default function OralQualityControl() {
 
               {/* 项目卡片 - 在容器约束内 */}
               <div className="bg-card text-card-foreground backdrop-blur-sm rounded-2xl shadow-2xl border border-border">
-                {/* 标题区 */}
-                <div className="bg-gradient-to-r from-primary to-primary/80 text-primary-foreground px-8 py-12 relative overflow-hidden">
-                  <div className="relative z-10">
-                    <h1 className="text-4xl font-bold tracking-tight sm:text-5xl mb-4">口腔质控系统 2024.5-至今</h1>
-                    <p className="text-xl opacity-90 max-w-3xl">
-                      基于Web的全市医疗数据构建口腔专科质控平台，动态评估种植、根管、牙周三大病种诊疗质量。
-                    </p>
-                  </div>
+                {/* 标题区 - 参考口腔颌面外科AI诊断平台优化 */}
+                <div className="bg-gradient-to-r from-primary to-primary/80 text-primary-foreground px-8 py-16 text-center relative overflow-hidden">
+                  <h1 className="text-3xl md:text-4xl font-bold mb-4 relative">口腔质控系统</h1>
+                  <p className="text-xl opacity-90 relative">2024.5-至今</p>
+                  <p className="mt-4 text-lg opacity-90 max-w-3xl mx-auto relative">
+                    基于Web的全市医疗数据构建口腔专科质控平台，动态评估种植、根管、牙周三大病种诊疗质量。
+                  </p>
                 </div>
 
                 {/* 内容区 */}
-                <div className={`p-8 sm:p-12 space-y-8 text-base transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                <div className={`p-8 sm:p-12 space-y-10 transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
                   {/* 项目概述 */}
-                  <div className="p-8 rounded-xl bg-muted border border-border">
-                    <h2 className="text-2xl font-semibold mb-6 pb-4 border-b border-border">项目概述</h2>
-                    <p className="text-lg leading-relaxed text-muted-foreground">
+                  <div className="p-8 rounded-xl bg-card shadow-lg border border-border/50">
+                    <h2 className="text-2xl font-bold mb-6 pb-4 border-b border-border/30">项目概述</h2>
+                    <p className="text-lg leading-relaxed text-muted-foreground mb-8">
                       支持医生病历模板下载、书写、上报全流程管理，集成影像标注、AI模型训练及推理服务，实现诊疗质量精准提升。系统基于全市医疗数据，动态评估种植、根管、牙周三大病种诊疗质量，为医疗机构提供质量改进方案。
                     </p>
-                  </div>
 
-                  {/* 统计数据 */}
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div className="bg-gradient-to-br from-primary to-primary/80 text-primary-foreground p-6 rounded-xl shadow-md text-center">
-                      <div className="text-4xl font-bold mb-2">200+</div>
-                      <div className="text-sm opacity-90">并发用户支持</div>
-                    </div>
-                    <div className="bg-gradient-to-br from-secondary to-secondary/80 text-secondary-foreground p-6 rounded-xl shadow-md text-center">
-                      <div className="text-4xl font-bold mb-2">1s</div>
-                      <div className="text-sm opacity-90">高负载响应时间</div>
-                    </div>
-                    <div className="bg-gradient-to-br from-accent to-accent/80 text-accent-foreground p-6 rounded-xl shadow-md text-center">
-                      <div className="text-4xl font-bold mb-2">3</div>
-                      <div className="text-sm opacity-90">专科病种覆盖</div>
+                    {/* 统计数据 */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                      <div className="bg-gradient-to-br from-primary to-primary/80 text-primary-foreground p-6 rounded-xl shadow-md text-center">
+                        <div className="text-4xl font-bold mb-2">200+</div>
+                        <div className="text-sm opacity-90">并发用户支持</div>
+                      </div>
+                      <div className="bg-gradient-to-br from-secondary to-secondary/80 text-secondary-foreground p-6 rounded-xl shadow-md text-center">
+                        <div className="text-4xl font-bold mb-2">1s</div>
+                        <div className="text-sm opacity-90">高负载响应时间</div>
+                      </div>
+                      <div className="bg-gradient-to-br from-accent to-accent/80 text-accent-foreground p-6 rounded-xl shadow-md text-center">
+                        <div className="text-4xl font-bold mb-2">3</div>
+                        <div className="text-sm opacity-90">专科病种覆盖</div>
+                      </div>
                     </div>
                   </div>
 
                   {/* 岗位职责 */}
-                  <div className="p-8 rounded-xl bg-muted border border-border">
-                    <h2 className="text-2xl font-semibold mb-6 pb-4 border-b border-border">岗位职责</h2>
-                    <div className="space-y-6">
+                  <div className="p-8 rounded-xl bg-card shadow-lg border border-border/50">
+                    <h2 className="text-2xl font-bold mb-6 pb-4 border-b border-border/30">岗位职责</h2>
+                    <div className="space-y-5">
                       <div className="flex items-start">
                         <CheckCircle className="h-6 w-6 text-muted-foreground mr-3 mt-1" />
                         <div>

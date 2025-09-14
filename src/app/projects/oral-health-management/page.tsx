@@ -31,46 +31,45 @@ export default function OralHealthManagement() {
 
               {/* 项目卡片 - 在容器约束内 */}
               <div className="bg-card text-card-foreground backdrop-blur-sm rounded-2xl shadow-2xl border border-border">
-                {/* 标题区 - 变量渐变 */}
-                <div className="bg-gradient-to-r from-primary to-primary/80 text-primary-foreground px-8 py-12 relative overflow-hidden">
-                  <div className="relative z-10">
-                    <h1 className="text-4xl font-bold tracking-tight sm:text-5xl mb-4">口腔健康管理平台 2022.06-至今</h1>
-                    <p className="text-xl opacity-90 max-w-3xl">
-                      构建覆盖全市的儿童口腔健康信息化平台，实现家长、学校、医疗机构、政府部门（教育局/卫生局）及窝沟封闭项目组等全角色的工作流程闭环管理。
-                    </p>
-                  </div>
+                {/* 标题区 - 参考口腔颌面外科AI诊断平台优化 */}
+                <div className="bg-gradient-to-r from-primary to-primary/80 text-primary-foreground px-8 py-16 text-center relative overflow-hidden">
+                  <h1 className="text-3xl md:text-4xl font-bold mb-4 relative">口腔健康管理平台</h1>
+                  <p className="text-xl opacity-90 relative">2022.06-至今</p>
+                  <p className="mt-4 text-lg opacity-90 max-w-3xl mx-auto relative">
+                    构建覆盖全市的儿童口腔健康信息化平台，实现家长、学校、医疗机构、政府部门（教育局/卫生局）及窝沟封闭项目组等全角色的工作流程闭环管理。
+                  </p>
                 </div>
 
-                {/* 内容区 - 统一入场动画 */}
-                <div className={`p-8 sm:p-12 space-y-8 text-base transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                {/* 内容区 */}
+                <div className={`p-8 sm:p-12 space-y-10 transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
                   {/* 项目概述 */}
-                  <div className="p-8 rounded-xl bg-muted border border-border">
-                    <h2 className="text-2xl font-semibold mb-6 pb-4 border-b border-border">项目概述</h2>
-                    <p className="text-lg leading-relaxed text-muted-foreground">
+                  <div className="p-8 rounded-xl bg-card shadow-lg border border-border/50">
+                    <h2 className="text-2xl font-bold mb-6 pb-4 border-b border-border/30">项目概述</h2>
+                    <p className="text-lg leading-relaxed text-muted-foreground mb-8">
                       平台核心功能涵盖儿童健康档案建立、预约管理（号池分配、家长预约）、诊疗流程（医生检查、手术、报告）及项目质控督导等，为青岛市儿童提供统一的口腔健康管理服务。系统采用云端部署，支持PC、手机及平板等多终端访问。
                     </p>
+
+                    {/* 统计数据 */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                      <div className="bg-gradient-to-br from-primary to-primary/80 text-primary-foreground p-6 rounded-xl shadow-md text-center">
+                        <div className="text-4xl font-bold mb-2">200+</div>
+                        <div className="text-sm opacity-90">接口自动化用例</div>
+                      </div>
+                      <div className="bg-gradient-to-br from-secondary to-secondary/80 text-secondary-foreground p-6 rounded-xl shadow-md text-center">
+                        <div className="text-4xl font-bold mb-2">70%</div>
+                        <div className="text-sm opacity-90">自动化覆盖率</div>
+                      </div>
+                      <div className="bg-gradient-to-br from-accent to-accent/80 text-accent-foreground p-6 rounded-xl shadow-md text-center">
+                        <div className="text-4xl font-bold mb-2">50%</div>
+                        <div className="text-sm opacity-90">回归测试效率提升</div>
+                      </div>
+                    </div>
                   </div>
 
-                  {/* 统计数据 - 变量色渐变 */}
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div className="bg-gradient-to-br from-primary to-primary/80 text-primary-foreground p-6 rounded-xl shadow-md text-center">
-                      <div className="text-4xl font-bold mb-2">200+</div>
-                      <div className="text-sm opacity-90">接口自动化用例</div>
-                    </div>
-                    <div className="bg-gradient-to-br from-secondary to-secondary/80 text-secondary-foreground p-6 rounded-xl shadow-md text-center">
-                      <div className="text-4xl font-bold mb-2">70%</div>
-                      <div className="text-sm opacity-90">自动化覆盖率</div>
-                    </div>
-                    <div className="bg-gradient-to-br from-accent to-accent/80 text-accent-foreground p-6 rounded-xl shadow-md text-center">
-                      <div className="text-4xl font-bold mb-2">50%</div>
-                      <div className="text-sm opacity-90">回归测试效率提升</div>
-                    </div>
-                  </div>
-
-                  {/* 岗位职责 - 变量色 */}
-                  <div className="p-8 rounded-xl bg-muted border border-border">
-                    <h2 className="text-2xl font-semibold mb-6 pb-4 border-b border-border">岗位职责</h2>
-                    <div className="space-y-6">
+                  {/* 岗位职责 */}
+                  <div className="p-8 rounded-xl bg-card shadow-lg border border-border/50">
+                    <h2 className="text-2xl font-bold mb-6 pb-4 border-b border-border/30">岗位职责</h2>
+                    <div className="space-y-5">
                       {/* 职责1-5 已用 muted-foreground 随主题换色 */}
                       <div className="flex items-start">
                         <CheckCircle className="h-6 w-6 text-muted-foreground mr-3 mt-1" />
