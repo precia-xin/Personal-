@@ -82,11 +82,11 @@ export default function OralHealthManagement() {
                         <CheckCircle className="h-6 w-6 text-muted-foreground mr-3 mt-1" />
                         <div>
                           <h3 className="font-semibold text-lg mb-2">搭建并维护自动化框架</h3>
-                          <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-                            <li>基于 <span className="bg-muted px-1 rounded">Python+Requests+Pytest+Pymysql+Openpyxl+Loguru+Allure</span> 搭建接口自动化框架，编写 200+ 用例，覆盖率 70%，回归效率提升 50%。</li>
-                            <li>基于 <span className="bg-muted px-1 rounded">Python+Selenium+Pytest+Allure+Loguru</span> 搭建 UI 自动化框架，编写 100+ 脚本，主流程覆盖率 60%。</li>
+                          <ul className="list-disc list-inside space-y-2 text-muted-foreground break-words">
+                            <li>基于 Python+Requests+Pytest+Pymysql+Openpyxl+Loguru+Allure 搭建接口自动化框架，编写 200+ 用例，覆盖率 70%，回归效率提升 50%。</li>
+                            <li>基于 Python+Selenium+Pytest+Allure+Loguru 搭建 UI 自动化框架，编写 100+ 脚本，主流程覆盖率 60%。</li>
                             <li>采用代码分层、数据驱动、PO 模式持续优化框架。</li>
-                            <li>使用 <span className="bg-muted px-1 rounded">Jenkins+Git</span> 实现持续集成，定时触发并邮件推送结果。</li>
+                            <li>使用 Jenkins+Git 实现持续集成，定时触发并邮件推送结果。</li>
                             <li>分析测试报告，跟踪缺陷，持续优化脚本。</li>
                           </ul>
                         </div>
