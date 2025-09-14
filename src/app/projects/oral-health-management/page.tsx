@@ -82,13 +82,23 @@ export default function OralHealthManagement() {
                         <CheckCircle className="h-6 w-6 text-muted-foreground mr-3 mt-1" />
                         <div>
                           <h3 className="font-semibold text-lg mb-2">搭建并维护自动化框架</h3>
-                          <ul className="list-disc list-inside space-y-2 text-muted-foreground break-words">
-                            <li>基于 Python+Requests+Pytest+Pymysql+Openpyxl+Loguru+Allure 搭建接口自动化框架，编写 200+ 用例，覆盖率 70%，回归效率提升 50%。</li>
-                            <li>基于 Python+Selenium+Pytest+Allure+Loguru 搭建 UI 自动化框架，编写 100+ 脚本，主流程覆盖率 60%。</li>
-                            <li>采用代码分层、数据驱动、PO 模式持续优化框架。</li>
-                            <li>使用 Jenkins+Git 实现持续集成，定时触发并邮件推送结果。</li>
-                            <li>分析测试报告，跟踪缺陷，持续优化脚本。</li>
-                          </ul>
+                          <div className="space-y-3 text-muted-foreground">
+                            <p>
+                              <span className="font-medium">接口自动化框架：</span>基于<span className="bg-muted px-1 rounded">Python+Requests+Pytest+Pymysql+Openpyxl+Loguru+Allure</span>搭建接口自动化框架，编写<span className="font-semibold">200+</span>接口自动化用例，覆盖核心业务流程，自动化覆盖率达<span className="font-semibold">70%</span>，回归测试效率提升<span className="font-semibold">50%</span>。
+                            </p>
+                            <p>
+                              <span className="font-medium">UI自动化框架：</span>基于<span className="bg-muted px-1 rounded">Python+Selenium+Pytest+Allure+Loguru</span>模式搭建UI自动化框架，编写<span className="font-semibold">100+</span>UI自动化脚本，主流程自动化覆盖率达<span className="font-semibold">60%</span>。
+                            </p>
+                            <p>
+                              <span className="font-medium">框架优化：</span>采用代码分层、数据驱动、PO设计思想持续优化框架，提高覆盖率与可维护性。
+                            </p>
+                            <p>
+                              <span className="font-medium">持续集成：</span>使用<span className="bg-muted px-1 rounded">Jenkins+Git</span>实现持续集成，定时触发自动化任务并通过邮件发送结果。
+                            </p>
+                            <p>
+                              <span className="font-medium">结果分析：</span>分析测试报告与结果，跟踪缺陷并持续优化框架代码。
+                            </p>
+                          </div>
                         </div>
                       </div>
                       <div className="flex items-start">
