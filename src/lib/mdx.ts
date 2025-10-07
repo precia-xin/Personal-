@@ -2,7 +2,7 @@ import { compileMDX } from 'next-mdx-remote/rsc'
 import { promises as fs } from 'fs'
 import path from 'path'
 import remarkGfm from 'remark-gfm'
-import rehypePrism from '@mapbox/rehype-prism'
+// import rehypePrism from '@mapbox/rehype-prism'
 import { mdxComponents } from '@/components/shared/MdxComponents'
 
 export async function getMDXContent(slug: string) {
@@ -16,7 +16,7 @@ export async function getMDXContent(slug: string) {
       parseFrontmatter: true,
       mdxOptions: {
         remarkPlugins: [remarkGfm],
-        rehypePlugins: [rehypePrism],
+        // rehypePlugins: [rehypePrism as RehypePlugin],
       }
     }
   })
