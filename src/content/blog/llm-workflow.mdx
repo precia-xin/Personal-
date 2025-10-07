@@ -1,14 +1,345 @@
 ---
-title: 'Python 常用数据类型速查表'
-description: 'Python基础'
+title: 'Python 常用数据类型'
+description: 'Python基础-字符串、运算符'
+author: 'Precia'
 date: '2022-06-21'
 ---
 
-1. 整型 `int`  `12` → `int()`
-2. 浮点 `float` `3.14` → `float()`
-3. 布尔 `bool` `True / False` → `bool()`（首字母大写）
-4. 字符串 `str` `"hello"` → `str()`
-5. 列表 `list` `[1, 2, 3]` → `list()`
-6. 字典 `dict` `{"name":"tudou"}` → `dict()`
-7. 元组 `tuple` `(1, 2, 3)` → `tuple()`
-8. 集合 `set` `{1, 2, 3}` → `set()`
+# 一、小技巧
+
+1. **控制台提示**：`Code 0` 代表当前代码没有报错。
+2. **格式化代码**：`Ctrl + Alt + L`（PyCharm）可自动格式化代码，使其符合 PEP8 规范。
+3. **注释方式**：
+   - **单行注释**：使用 `#`，通常写在被解释代码的上方。
+   - **多行注释**：用三引号包裹，支持双引号 `"""注释"""` 或单引号 `'''注释'''`。
+   - **快捷注释/取消**：选中代码后按 `Ctrl + /`。
+4. **快捷打印**（部分 IDE 支持）：
+   ```python
+   num = 1
+   # 输入 num.pr 然后回车 → 自动变为 print(num)
+   ```
+
+# 二、变量
+
+变量名需符合 **标识符命名规则**：
+
+- 只能包含字母、数字和下划线 `_`
+- 不能以数字开头
+- 不能使用 Python 关键字（可通过以下代码查看）：
+  ```python
+  import keyword
+  print(keyword.kwlist)
+  ```
+  输出：
+  ```python
+  ['False', 'None', 'True', '__peg_parser__', 'and', 'as', 'assert', 'async', 'await',
+   'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally',
+   'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not',
+   'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield']
+  ```
+
+- **命名习惯**：
+  - **见名知意**：如 `user_name` 比 `a` 更清晰。
+  - **常见风格**：
+    - **大驼峰**（PascalCase）：`LemonClass` → 用于类名
+    - **小写下划线**（snake_case）：`user_name` → 用于变量/函数名
+  - **避免覆盖内置函数名**：如不要命名为 `print`、`str`、`list` 等。
+
+> ⚠️ 注意：
+> - 变量必须先定义再使用。
+> - 调用变量时**不要加引号**（加引号就变成字符串了）。
+> - 重新赋值会覆盖原值。
+
+# 三、数据类型
+
+## 1. Python 常用数据类型
+
+| 类型     | 示例                          | 转换函数 |
+|----------|-------------------------------|----------|
+| 整型 `int`    | `42`, `-5`                    | `int()`  |
+| 浮点型 `float`| `3.14`, `-0.5`                | `float()`|
+| 布尔型 `bool` | `True`（真）、`False`（假）   | `bool()` |
+| 字符串 `str`  | `"hello"`, `'123'`, `"你好"`   | `str()`  |
+| 列表 `list`   | `[1, 2, "a"]`                 | `list()` |
+| 字典 `dict`   | `{"name": "tudou", "pwd": "123"}` | `dict()` |
+| 元组 `tuple`  | `(1, 2, 3)`                   | `tuple()`|
+| 集合 `set`    | `{1, 2, 3}`                   | `set()`  |
+
+> 💡 `True` 和 `False` 是关键字，**首字母必须大写**。`true`/`false` 可用作变量名，但不推荐。
+
+## 2. 判断数据类型
+
+- `type(变量)`：返回变量的具体类型。
+  ```python
+  num = 10
+  print(type(num))  # <class 'int'>
+  ```
+
+- `isinstance(变量, 类型)`：判断是否为指定类型，返回 `True`/`False`。
+  ```python
+  print(isinstance(num, int))  # True
+  ```
+
+## 3. 浮点型的精度问题
+
+Python 的 `float` 存在**精度丢失**问题（如 `0.1 + 0.2 != 0.3`）。
+
+✅ **解决方案**：使用 `decimal.Decimal`（适用于金融计算）：
+```python
+from decimal import Decimal
+
+c = Decimal("0.1") + Decimal("0.2")
+print(c)  # 0.3
+```
+> ⚠️ 注意：`Decimal` 必须用**字符串初始化**，避免先转为 float 再传入。
+
+# 四、字符串
+
+## 1. 定义
+
+字符串（`str`）是由成对引号包裹的文本：
+- 单引号：`'hello'`
+- 双引号：`"world"`
+- 三引号：`"""多行文本"""` 或 `'''保留格式'''`
+
+✅ **三引号用途**：
+- 多行字符串
+- 文档字符串（docstring）
+- 保留换行和缩进（所见即所得）
+
+## 2. 字符串取值与切片
+
+- **索引**：从 0 开始（正向），或从 -1 开始（反向）。
+  ```python
+  s = "Python"
+  print(s[0])   # P
+  print(s[-1])  # n
+  ```
+
+- **切片**：`[start:end:step]`
+  - 包含 `start`，不包含 `end`
+  - 默认 `start=0`, `end=len(s)`, `step=1`
+  - `step=-1` 可实现逆序
+  ```python
+  print(s[1:4])    # yth
+  print(s[::-1])   # nohtyP
+  ```
+
+## 3. 常用字符串方法
+
+### 3.1 查找元素位置
+
+- `str.index(sub)`：找到返回索引，**找不到报错**
+- `str.find(sub)`：找到返回索引，**找不到返回 -1**
+
+```python
+text = "今年赚大钱"
+print(text.find("钱"))    # 4
+print(text.find("金"))    # -1（不报错）
+# print(text.index("金")) # ValueError!
+```
+
+### 3.2 字符串格式化
+
+#### 方式一：f-string（推荐，Python 3.6+）
+```python
+name = "abby"
+age = 18
+print(f"名字是：{name}，年龄是：{age}")
+```
+
+#### 方式二：`.format()`
+```python
+print("名字是：{}，年龄是：{}".format(name, age))
+print("名字是：{n}，年龄是：{a}".format(n=name, a=age))
+```
+
+> 📌 f-string 更简洁、高效，支持表达式（如 `{age + 1}`）。
+
+### 3.3 `join()`：连接列表为字符串
+
+```python
+words = ["好了", "，", "来", "细数", "你的", "罪恶", "吧！"]
+sentence = "".join(words)
+print(sentence)  # 好了，来细数你的罪恶吧！
+```
+
+### 3.4 `split()`：按分隔符拆分字符串
+
+```python
+data = "好了，来细数你的罪恶吧！"
+parts = data.split("，")
+print(parts)  # ['好了', '来细数你的罪恶吧！']
+```
+
+✅ **面试题**：从 URL 中提取域名
+```python
+url = "https://www.baidu.com/#/login"
+domain = url.split("/")[2]
+print(domain)  # www.baidu.com
+```
+
+### 3.5 `replace()`：替换子串
+
+```python
+text = "空我是假面骑士里最厉害的骑士,空我还是最帅的骑士"
+new_text = text.replace("空我", "KABUTO", 2)
+print(new_text)
+```
+> ⚠️ 字符串是**不可变对象**，`replace()` 返回新字符串，原字符串不变。
+
+### 3.6 `strip()`：去除首尾空白或指定字符
+
+```python
+s1 = "  15815561111  "
+print(s1.strip())  # "15815561111"
+
+s2 = "---15815561111---"
+print(s2.strip("-"))  # "15815561111"
+```
+
+> ❌ 不能去除中间字符，需用 `replace()`。
+
+### 3.7 大小写转换
+
+- `upper()`：转大写
+- `lower()`：转小写
+
+```python
+print("Hello".upper())  # HELLO
+```
+
+### 3.8 判断开头/结尾
+
+- `startswith(prefix)`
+- `endswith(suffix)`
+
+```python
+resp = '{"code": 0, "msg": "success"}'
+print(resp.startswith("{"))  # True
+print(resp.endswith("}"))    # True
+
+email = "user@example.com"
+print(email.endswith(".com"))  # True
+```
+
+### 3.9 判断字符类型
+
+| 方法        | 说明                     | 示例（输入 `'18'`） |
+|-------------|--------------------------|---------------------|
+| `isdigit()` | 是否全为数字             | `True`              |
+| `isalpha()` | 是否全为字母（含中文）   | `False`             |
+| `isalnum()` | 是否为字母或数字         | `True`              |
+| `islower()` | 是否全为小写字母         | `False`             |
+| `isupper()` | 是否全为大写字母         | `False`             |
+
+```python
+user_input = input("请输入内容：")  # 如输入 "18"
+print(user_input.isdigit())  # True
+```
+
+### 3.10 `count()`：统计子串出现次数
+
+```python
+s = "hello world!"
+print(s.count("l"))  # 3
+```
+
+### 3.11 小结
+
+- 字符串是**不可变序列**，所有操作均返回新字符串。
+- 核心操作：**切片、格式化、查找、替换、分割、连接**。
+- 在测试、日志、数据清洗中广泛应用。
+
+# 五、转义字符
+
+- **普通转义**：在特殊字符前加 `\`
+  ```python
+  a = "\"土豆老师\"是咱们的课程授课老师！"
+  print(a)  # "土豆老师"是咱们的课程授课老师！
+  ```
+
+- **原始字符串**：在字符串前加 `r` 或 `R`，忽略转义（常用于路径）
+  ```python
+  print(r"D:\tudou\nest.txt")  # D:\tudou\nest.txt
+  ```
+
+# 六、常用内置函数
+
+| 函数      | 说明 |
+|-----------|------|
+| `print()` | 输出到控制台 |
+| `type()`  | 查看数据类型 |
+| `isinstance()` | 判断类型 |
+| `len()`   | 获取长度（字符串、列表、元组、字典等） |
+| `input()` | 从控制台读取输入（**返回字符串**） |
+| `int()`, `float()`, `str()` | 类型转换 |
+
+> ⚠️ `input()` 输入的内容**总是字符串**，需手动转换：
+> ```python
+> age = int(input("请输入年龄："))
+> ```
+
+# 七、运算符
+
+## 1. 算术运算符
+
+| 运算符 | 说明     | 示例    | 结果  |
+|--------|----------|---------|-------|
+| `+`    | 加       | `5 + 2` | `7`   |
+| `-`    | 减       | `5 - 2` | `3`   |
+| `*`    | 乘       | `5 * 2` | `10`  |
+| `/`    | 除（浮点）| `5 / 2` | `2.5` |
+| `//`   | 整除     | `5 // 2`| `2`   |
+| `%`    | 取余     | `5 % 2` | `1`   |
+| `**`   | 幂       | `5 ** 2`| `25`  |
+
+> ✅ 字符串也支持 `+`（拼接）和 `*`（重复）：
+> ```python
+> print("Hi" + "!" * 3)  # Hi!!!
+> ```
+
+## 2. 赋值运算符
+
+| 运算符 | 示例     | 等价于         |
+|--------|----------|----------------|
+| `=`    | `x = 5`  | —              |
+| `+=`   | `x += 2` | `x = x + 2`    |
+| `-=`   | `x -= 2` | `x = x - 2`    |
+| `*=`   | `x *= 2` | `x = x * 2`    |
+| `/=`   | `x /= 2` | `x = x / 2`    |
+| `//=`  | `x //= 2`| `x = x // 2`   |
+| `%=`   | `x %= 2` | `x = x % 2`    |
+| `**=`  | `x **= 2`| `x = x ** 2`   |
+
+## 3. 比较运算符
+
+| 运算符 | 说明   | 示例      | 结果   |
+|--------|--------|-----------|--------|
+| `==`   | 等于   | `5 == 5`  | `True` |
+| `!=`   | 不等于 | `5 != 3`  | `True` |
+| `>`    | 大于   | `5 > 3`   | `True` |
+| `<`    | 小于   | `5 < 3`   | `False`|
+| `>=`   | ≥      | `5 >= 5`  | `True` |
+| `<=`   | ≤      | `5 <= 3`  | `False`|
+
+## 4. 逻辑运算符
+
+| 运算符 | 说明   | 示例               | 结果    |
+|--------|--------|--------------------|---------|
+| `and`  | 与     | `True and False`   | `False` |
+| `or`   | 或     | `True or False`    | `True`  |
+| `not`  | 非     | `not True`         | `False` |
+
+## 5. 成员运算符
+
+```python
+data = "好了，来细数你的罪恶吧"
+print("罪恶" in data)      # True
+print("善良" not in data)  # True
+```
+
+| 运算符   | 说明             | 示例            | 结果   |
+|----------|------------------|-----------------|--------|
+| `in`     | 是否在序列中     | `'a' in 'abc'`  | `True` |
+| `not in` | 是否不在序列中   | `'x' not in 'abc'`| `True` |

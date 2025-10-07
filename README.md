@@ -1,229 +1,293 @@
-# SCLS AI Camp - Mini Project 1: Personal Portfolio
+# 🌟 现代个人作品集网站
 
-[English](README.md) | [简体中文](README.md#readme-中文)
+[English](#english) | [简体中文](#简体中文)
 
-This is Mini Project 1 for SCLS AI Camp students, based on the excellent portfolio template originally created by [Corey Chiu](https://coreychiu.com). This template has been adapted for educational purposes to help students learn web development, Git workflows, and deployment practices.
+这是一个基于 Next.js 14 构建的现代个人作品集网站，支持博客、项目展示、技能展示等功能。具有优雅的设计、完整的功能和出色的性能。
 
-## Original Credit
-This template was created by Corey Chiu. Check out his work at [coreychiu.com](https://coreychiu.com)
+## ✨ 特色功能
 
-## Quick Start
+- 🎨 **现代设计** - 基于 TailwindCSS 和 Shadcn/UI 的优雅界面
+- 📝 **博客系统** - 完整的 Markdown/MDX 支持
+- 💼 **项目展示** - 展示你的作品和技能
+- 🌙 **主题切换** - 明暗主题无缝切换
+- 📱 **响应式设计** - 完美适配各种设备
+- ⚡ **性能优化** - 基于 Next.js 14 的极致性能
+- 🔍 **SEO 友好** - 完整的元数据和结构化数据
 
-### Prerequisites
-- Basic understanding of Git
-- Node.js installed on your computer
-- GitHub account
+## 🚀 快速开始
 
-### Development
-1. Fork this repository to your GitHub account:
-   - Click the "Fork" button at the top right of this page
-   - Select your GitHub account as the destination
+> 只需 5 分钟，让你的个人网站上线！
 
-2. Clone your forked repository:
+### 环境要求
+- Node.js 18+
+- pnpm (推荐) 或 npm
+- Git
+
+### 安装步骤
+
+1. **克隆项目**
 ```bash
-git clone git@github.com:YOUR_USERNAME/MP1.git
-cd MP1
+git clone <your-repo-url>
+cd Personal-
 ```
 
-3. Install dependencies:
+2. **安装依赖**
 ```bash
 pnpm install
+# 或 npm install
 ```
 
-4. Create and configure your `.env.local`:
-```bash
-cp .env.example .env.local
-```
-
-5. Start the development server:
+3. **启动开发服务器**
 ```bash
 pnpm dev
+# 或 npm run dev
 ```
 
-6. Open [http://localhost:3000](http://localhost:3000) in your browser to see your portfolio
+4. **访问网站**
+打开 [http://localhost:3000](http://localhost:3000) 🎉
 
-### Deployment
-The easiest way to deploy your portfolio is using [Vercel](https://vercel.com):
+### 个性化配置
 
-1. Create an account on [Vercel](https://vercel.com)
-2. Click the button below to deploy:
+**修改个人信息**（`src/config/infoConfig.ts`）：
+```typescript
+export const name = '你的姓名'
+export const headline = '你的职业描述'
+export const email = 'your.email@example.com'
+```
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/SCLS-AI-Camp/MP1)
+**添加博客文章**（`src/content/blog/`）：
+```markdown
+---
+title: '我的第一篇博客'
+description: '博客描述'
+author: '作者'
+date: '2024-10-07'
+---
 
-3. Follow Vercel's instructions to complete the deployment
+# 标题
+你的内容...
+```
 
-## Features
-- 🎨 Beautifully designed UI using TailwindCSS, MagicUI, and Shadcn/UI
-- 📱 Responsive layout
-- 🌙 Light/Dark Mode
-- 📊 Github Calendar & Contribution Snake
-- 💻 Tech Icon Cloud
-- 🐦 Tweet Grid
-- 👥 Visitor Counter
-- 📝 Blog Section with MDX and Markdown support
-- 📰 RSS Feed
-- 📈 Web Analytics support (Google Analytics, OpenPanel Analytics, Plausible Analytics)
+### 部署上线
 
-## Tech Stack
-- Next.js
-- TailwindCSS
-- Shadcn/UI
-- MagicUI
-- Phosphor Icons
+**使用 Vercel（推荐）**
+1. 访问 [vercel.com](https://vercel.com)
+2. 连接 GitHub 仓库
+3. 一键部署 ✨
 
-## Configuration Guide
-After getting your site running, you can customize it by modifying these files:
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
 
-### Configuration Files
-- `.env.local` - Environment variables
-- `src/config/siteConfig.ts` - Site configuration
-- `src/config/infoConfig.ts` - Personal information
-- `src/config/*.ts` - Section-specific configurations
-- `src/content/blog/**.mdx` - Blog content
-- `public/github-contribution-snake/*.svg` - GitHub contribution visualization
+## 🛠️ 技术栈
 
-## Need Help?
-- Watch the tutorial videos provided in the AI Camp course
-- Ask questions during class sessions
+- **前端框架**: Next.js 14 (App Router)
+- **样式系统**: TailwindCSS + Shadcn/UI
+- **内容管理**: MDX + Markdown
+- **图标库**: Phosphor Icons
+- **主题系统**: next-themes
+- **类型检查**: TypeScript
+- **包管理器**: pnpm
 
-## License
-This project is licensed under the MIT License - see the LICENSE file for details.
+## 📁 项目结构
+
+```
+Personal-/
+├── docs/                   # 📚 项目文档
+├── src/
+│   ├── app/               # 🛣️ Next.js App Router
+│   ├── components/        # 🧩 React 组件
+│   ├── config/           # ⚙️ 配置文件
+│   ├── content/blog/     # 📝 博客文章（MDX）
+│   ├── lib/              # 🔧 工具函数
+│   └── styles/           # 🎨 样式文件
+├── public/               # 🌐 静态资源
+└── QUICK_START.md        # 🚀 快速开始指南
+```
+
+## 📖 文档
+
+- 📋 **[快速开始指南](QUICK_START.md)** - 5分钟上手
+- 📖 **[完整项目指南](docs/PROJECT_GUIDE.md)** - 详细使用说明
+- ✍️ **[博客写作指南](docs/BLOG_WRITING_GUIDE.md)** - 如何写博客
+- 📚 **[文档中心](docs/README.md)** - 所有文档索引
+
+## 🎯 主要功能
+
+### 📝 博客系统
+- ✅ 完整的 Markdown/MDX 支持
+- ✅ 语法高亮和代码块
+- ✅ 自动生成文章列表
+- ✅ 响应式阅读体验
+
+### 💼 项目展示
+- ✅ 项目卡片展示
+- ✅ 技术栈标签
+- ✅ 项目链接管理
+- ✅ 项目详情页面
+
+### 🎨 设计系统
+- ✅ 统一的设计主题变量
+- ✅ 明暗主题切换
+- ✅ 响应式布局
+- ✅ 无障碍访问支持
+
+### ⚡ 性能优化
+- ✅ 静态生成 (SSG)
+- ✅ 图片优化
+- ✅ 代码分割
+- ✅ SEO 优化
+
+## 🤝 贡献
+
+欢迎提交 Issue 和 Pull Request！
+
+## 📄 许可证
+
+本项目基于 MIT 许可证开源。详见 [LICENSE](LICENSE) 文件。
 
 ---
 
-# SCLS AI Camp - Mini Project 1：个人作品集 <a name="readme-中文"></a>
+# 🌟 Modern Personal Portfolio Website {#english}
 
-[English](README.md) | [简体中文](README.md#readme-中文)
+[English](#english) | [简体中文](#简体中文)
 
-这是 SCLS AI Camp 的第一个迷你项目，基于 [Corey Chiu](https://coreychiu.com) 创建的优秀作品集模板。我们已经针对教育目的对其进行了调整，帮助学生学习网页开发、Git 工作流程和部署实践。
+A modern personal portfolio website built with Next.js 14, featuring blog, project showcase, skills display, and more. With elegant design, complete functionality, and excellent performance.
 
-## 原作者致谢
-本模板由 Corey Chiu 创建。查看他的作品：[coreychiu.com](https://coreychiu.com)
+## ✨ Key Features
 
-## 快速开始
+- 🎨 **Modern Design** - Elegant UI based on TailwindCSS and Shadcn/UI
+- 📝 **Blog System** - Complete Markdown/MDX support
+- 💼 **Project Showcase** - Display your works and skills
+- 🌙 **Theme Toggle** - Seamless light/dark theme switching
+- 📱 **Responsive Design** - Perfect adaptation to all devices
+- ⚡ **Performance Optimized** - Ultimate performance based on Next.js 14
+- 🔍 **SEO Friendly** - Complete metadata and structured data
 
-### 前置要求
-- 基本的 Git 知识
-- 电脑上已安装 Node.js和pnpm
-- GitHub 账号
+## 🚀 Quick Start
 
-### 开发步骤
-1. Fork 这个仓库到你的 GitHub 账号：
-   - 点击页面右上角的 "Fork" 按钮
-   - 选择你的 GitHub 账号作为目标
-
-2. 克隆你 fork 的仓库：
-```bash
-git clone git@github.com:你的用户名/MP1.git
-cd MP1
-```
-
-3. 安装依赖：
-```bash
-pnpm install
-```
-
-4. 创建并配置 `.env.local`：
-```bash
-cp .env.example .env.local
-```
-
-5. 启动开发服务器：
-```bash
-pnpm dev
-```
-
-6. 在浏览器中打开 [http://localhost:3000](http://localhost:3000) 查看你的作品集
-
-### 部署
-使用 [Vercel](https://vercel.com) 是部署你的作品集最简单的方式：
-
-1. 在 [Vercel](https://vercel.com) 创建账号
-2. 点击下面的按钮开始部署：
-
-[![使用 Vercel 部署](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/SCLS-AI-Camp/MP1)
-
-3. 按照 Vercel 的说明完成部署
-
-## 功能特点
-- 🎨 使用 TailwindCSS、MagicUI 和 Shadcn/UI 设计的精美界面
-- 📱 响应式布局
-- 🌙 明暗主题模式
-- 📊 GitHub 贡献日历和贡献蛇形图
-- 💻 技术图标云
-- 🐦 推文展示
-- 👥 访客计数器
-- 📝 支持 MDX 和 Markdown 的博客部分
-- 📰 RSS 订阅
-- 📈 网站分析支持（Google Analytics、OpenPanel Analytics、Plausible Analytics）
-
-## 技术栈
-- Next.js
-- TailwindCSS
-- Shadcn/UI
-- MagicUI
-- Phosphor Icons
-
-## 配置指南
-在网站运行之后，你可以通过修改这些文件来自定义你的网站：
-
-### 配置文件
-- `.env.local` - 环境变量
-- `src/config/siteConfig.ts` - 网站配置
-- `src/config/infoConfig.ts` - 个人信息
-- `src/config/*.ts` - 各部分的具体配置
-- `src/content/blog/**.mdx` - 博客内容
-- `public/github-contribution-snake/*.svg` - GitHub 贡献可视化
-
-## 需要帮助？
-- 观看 AI Camp 课程提供的教学视频
-- 在课堂上提出问题
-
-## 许可证
-本项目基于 MIT 许可证 - 查看 LICENSE 文件了解详情
-# SCLS AI Camp - Mini Project 1: Personal Portfolio
-
-This is Mini Project 1 for SCLS AI Camp students, based on the excellent portfolio template originally created by [Corey Chiu](https://coreychiu.com). This template has been adapted for educational purposes to help students learn web development, Git workflows, and deployment practices.
-
-## Original Credit
-This template was created by Corey Chiu. Check out his work at [coreychiu.com](https://coreychiu.com)
-
-## Features
-- 🎨 Beautifully designed UI using TailwindCSS, MagicUI, and Shadcn/UI
-- 📱 Responsive layout
-- 🌙 Light/Dark Mode
-- 📊 Github Calendar & Contribution Snake
-- 💻 Tech Icon Cloud
-- 🐦 Tweet Grid
-- 👥 Visitor Counter
-- 📝 Blog Section with MDX and Markdown support
-- 📰 RSS Feed
-- 📈 Web Analytics support (Google Analytics, OpenPanel Analytics, Plausible Analytics)
-
-## Tech Stack
-- Next.js
-- TailwindCSS
-- Shadcn/UI
-- MagicUI
-- Phosphor Icons
-
-## Getting Started
+> Get your personal website online in just 5 minutes!
 
 ### Prerequisites
-- Basic understanding of Git
-- Node.js installed on your computer
-- GitHub account
+- Node.js 18+
+- pnpm (recommended) or npm
+- Git
 
-### Configuration Files
-- `.env.local` - Environment variables
-- `src/config/siteConfig.ts` - Site configuration
-- `src/config/infoConfig.ts` - Personal information
-- `src/config/*.ts` - Section-specific configurations
-- `src/content/blog/**.mdx` - Blog content
-- `public/github-contribution-snake/*.svg` - GitHub contribution visualization
+### Installation Steps
 
-### Development
-1. Clone the repository:
+1. **Clone the project**
 ```bash
-git clone [your-forked-repo-url]
+git clone <your-repo-url>
+cd Personal-
+```
 
+2. **Install dependencies**
+```bash
+pnpm install
+# or npm install
+```
+
+3. **Start development server**
+```bash
+pnpm dev
+# or npm run dev
+```
+
+4. **Visit the website**
+Open [http://localhost:3000](http://localhost:3000) 🎉
+
+### Personalization
+
+**Modify personal information** (`src/config/infoConfig.ts`):
+```typescript
+export const name = 'Your Name'
+export const headline = 'Your Professional Title'
+export const email = 'your.email@example.com'
+```
+
+**Add blog articles** (`src/content/blog/`):
+```markdown
+---
+title: 'My First Blog Post'
+description: 'Blog description'
+author: 'Author'
+date: '2024-10-07'
+---
+
+# Title
+Your content...
+```
+
+### Deployment
+
+**Using Vercel (Recommended)**
+1. Visit [vercel.com](https://vercel.com)
+2. Connect GitHub repository
+3. One-click deployment ✨
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
+
+## 🛠️ Tech Stack
+
+- **Frontend Framework**: Next.js 14 (App Router)
+- **Styling**: TailwindCSS + Shadcn/UI
+- **Content Management**: MDX + Markdown
+- **Icons**: Phosphor Icons
+- **Theme System**: next-themes
+- **Type Checking**: TypeScript
+- **Package Manager**: pnpm
+
+## 📁 Project Structure
+
+```
+Personal-/
+├── docs/                   # 📚 Project documentation
+├── src/
+│   ├── app/               # 🛣️ Next.js App Router
+│   ├── components/        # 🧩 React components
+│   ├── config/           # ⚙️ Configuration files
+│   ├── content/blog/     # 📝 Blog articles (MDX)
+│   ├── lib/              # 🔧 Utility functions
+│   └── styles/           # 🎨 Style files
+├── public/               # 🌐 Static assets
+└── QUICK_START.md        # 🚀 Quick start guide
+```
+
+## 📖 Documentation
+
+- 📋 **[Quick Start Guide](QUICK_START.md)** - Get started in 5 minutes
+- 📖 **[Complete Project Guide](docs/PROJECT_GUIDE.md)** - Detailed usage instructions
+- ✍️ **[Blog Writing Guide](docs/BLOG_WRITING_GUIDE.md)** - How to write blogs
+- 📚 **[Documentation Center](docs/README.md)** - All documentation index
+
+## 🎯 Main Features
+
+### 📝 Blog System
+- ✅ Complete Markdown/MDX support
+- ✅ Syntax highlighting and code blocks
+- ✅ Automatic article list generation
+- ✅ Responsive reading experience
+
+### 💼 Project Showcase
+- ✅ Project card display
+- ✅ Technology stack tags
+- ✅ Project link management
+- ✅ Project detail pages
+
+### 🎨 Design System
+- ✅ Unified design theme variables
+- ✅ Light/dark theme switching
+- ✅ Responsive layout
+- ✅ Accessibility support
+
+### ⚡ Performance Optimization
+- ✅ Static generation (SSG)
+- ✅ Image optimization
+- ✅ Code splitting
+- ✅ SEO optimization
+
+## 🤝 Contributing
+
+Welcome to submit Issues and Pull Requests!
+
+## 📄 License
+
+This project is open source under the MIT License. See [LICENSE](LICENSE) file for details.

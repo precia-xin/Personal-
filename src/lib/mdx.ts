@@ -1,6 +1,8 @@
 import { compileMDX } from 'next-mdx-remote/rsc'
 import { promises as fs } from 'fs'
 import path from 'path'
+import remarkGfm from 'remark-gfm'
+import rehypePrism from '@mapbox/rehype-prism'
 import { mdxComponents } from '@/components/shared/MdxComponents'
 
 export async function getMDXContent(slug: string) {
@@ -10,7 +12,13 @@ export async function getMDXContent(slug: string) {
   const { content } = await compileMDX({
     source,
     components: mdxComponents,
-    options: { parseFrontmatter: true }
+    options: { 
+      parseFrontmatter: true,
+      mdxOptions: {
+        remarkPlugins: [remarkGfm],
+        rehypePlugins: [rehypePrism],
+      }
+    }
   })
   
   return content

@@ -1,5 +1,6 @@
 import { Footer } from '@/components/layout/Footer'
 import { Header } from '@/components/layout/Header'
+import ErrorBoundary from '@/components/shared/ErrorBoundary'
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -11,7 +12,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </div>
       <div className="relative flex w-full flex-col px-4 sm:px-0">
         <Header />
-        <main className="flex-auto">{children}</main>
+        <main className="flex-auto">
+          <ErrorBoundary>
+            {children}
+          </ErrorBoundary>
+        </main>
         <Footer />
       </div>
     </>

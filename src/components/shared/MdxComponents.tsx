@@ -199,15 +199,56 @@ export const mdxComponents: MDXComponents = {
     <hr className="my-8 border-border" {...props} />
   ),
   table: (props: any) => (
-    <div className="my-6 overflow-x-auto">
-      <table className="min-w-full border-collapse border border-border rounded-lg" {...props} />
+    <div className="my-6 overflow-x-auto rounded-lg border border-border shadow-sm">
+      <table 
+        className="min-w-full border-collapse bg-card table-auto" 
+        style={{ 
+          borderCollapse: 'collapse',
+          borderSpacing: 0,
+          display: 'table',
+          tableLayout: 'auto'
+        }}
+        {...props} 
+      />
     </div>
   ),
+  thead: (props: any) => (
+    <thead className="bg-muted/80" style={{ display: 'table-header-group' }} {...props} />
+  ),
   th: (props: any) => (
-    <th className="border border-border bg-muted px-4 py-2 text-left font-semibold text-foreground" {...props} />
+    <th 
+      className="border border-border px-4 py-3 text-left font-semibold text-foreground bg-muted/50" 
+      style={{ 
+        border: '1px solid hsl(var(--border))',
+        padding: '12px 16px',
+        textAlign: 'left',
+        fontWeight: '600',
+        backgroundColor: 'hsl(var(--muted) / 0.8)',
+        display: 'table-cell'
+      }}
+      {...props} 
+    />
   ),
   td: (props: any) => (
-    <td className="border border-border px-4 py-2 text-foreground" {...props} />
+    <td 
+      className="border border-border px-4 py-3 text-foreground" 
+      style={{ 
+        border: '1px solid hsl(var(--border))',
+        padding: '12px 16px',
+        display: 'table-cell'
+      }}
+      {...props} 
+    />
+  ),
+  tbody: (props: any) => (
+    <tbody className="divide-y divide-border" style={{ display: 'table-row-group' }} {...props} />
+  ),
+  tr: (props: any) => (
+    <tr 
+      className="hover:bg-muted/30 transition-colors duration-150" 
+      style={{ display: 'table-row' }}
+      {...props} 
+    />
   ),
   
   // 自定义的增强组件

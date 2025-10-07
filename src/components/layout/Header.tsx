@@ -8,6 +8,7 @@ import { Popover, Transition } from '@headlessui/react'
 import clsx from 'clsx'
 
 import { Container } from '@/components/layout/Container'
+import { AvatarImage } from '@/components/shared/AvatarImage'
 import avatarImage from '@/images/avatar.jpg'
 import { navItems } from '@/config/siteConfig'
 import { ThemeToggle } from '@/components/shared/ThemeToggle'
@@ -76,7 +77,7 @@ function MobileNavigation(
               </h2>
             </div>
             <nav className="mt-6">
-              <ul className="-my-2 divide-y divide-zinc-100 text-base dark:divide-zinc-100/5">
+              <ul className="-my-2 divide-y divide-border text-base">
                 {navItems.map((item) => (
                   <MobileNavItem key={item.name} href={item.href}>{item.name}</MobileNavItem>
                 ))}
@@ -157,7 +158,7 @@ function AvatarContainer({
       <div
         className={clsx(
           className,
-          'h-10 w-10 rounded-full bg-white/90 p-0.5 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:ring-white/10',
+          'h-10 w-10 rounded-full bg-card p-0.5 shadow-lg shadow-black/5 ring-1 ring-border backdrop-blur',
         )}
         {...props}
       />
@@ -188,14 +189,16 @@ function Avatar({
       className={clsx(className, 'pointer-events-auto')}
       {...props}
     >
-      <Image
+      <AvatarImage
         src={avatarImage}
-        alt=""
+        alt="User Avatar"
         sizes={large ? '4rem' : '2.25rem'}
         className={clsx(
-          'rounded-full bg-zinc-100 object-cover dark:bg-zinc-800',
+          'rounded-full bg-card object-cover',
           large ? 'h-16 w-16' : 'h-9 w-9',
         )}
+        width={large ? 64 : 36}
+        height={large ? 64 : 36}
         priority
       />
     </Link>

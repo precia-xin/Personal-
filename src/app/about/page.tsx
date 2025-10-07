@@ -24,15 +24,15 @@ export default function About() {
               src={portraitImage}
               alt=""
               sizes="(min-width: 1024px) 32rem, 20rem"
-              className="aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
+              className="aspect-square rotate-3 rounded-2xl bg-card object-cover"
             />
           </div>
         </div>
         <div className="lg:order-first lg:row-span-2">
-          <h1 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
+          <h1 className="text-3xl font-bold tracking-tight text-foreground">
             {aboutMeHeadline}
           </h1>
-          <div className="mt-6 space-y-7 text-xl text-zinc-700 dark:text-zinc-300">
+          <div className="mt-6 space-y-7 text-xl text-muted-foreground">
             {aboutParagraphs.map((paragraph, index) => (
               <p key={index}>{paragraph}</p>
             ))}

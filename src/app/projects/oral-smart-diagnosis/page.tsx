@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { ArrowLeft, CheckCircle } from 'lucide-react'
+import { FloatingBackButton } from '@/components/shared/FloatingBackButton'
 
 export default function OralSmartDiagnosis() {
   const router = useRouter()
@@ -19,14 +20,14 @@ export default function OralSmartDiagnosis() {
       <div className="sm:px-8">
         <div className="mx-auto w-full max-w-7xl lg:px-8">
           <div className="relative px-4 sm:px-8 lg:px-12 py-8">
-            <div className="mx-auto max-w-2xl lg:max-w-5xl">
-              {/* 返回按钮 - 在容器内定位 */}
+            <div className="mx-auto max-w-4xl lg:max-w-6xl">
+              {/* 静态返回按钮 - 页面顶部显示 */}
               <button
                 onClick={() => router.back()}
-                className="group mb-8 flex h-10 w-10 items-center justify-center rounded-full bg-white dark:bg-neutral-900 shadow-lg shadow-black/20 ring-1 ring-neutral-200 dark:ring-neutral-700 transition hover:bg-neutral-100 dark:hover:bg-neutral-800"
+                className="group mb-8 flex h-10 w-10 items-center justify-center rounded-full bg-card shadow-lg shadow-black/20 ring-1 ring-border transition hover:bg-muted"
                 aria-label="返回项目列表"
               >
-                <ArrowLeft className="h-4 w-4 stroke-neutral-700 dark:stroke-neutral-300 transition group-hover:stroke-neutral-900 dark:group-hover:stroke-white" />
+                <ArrowLeft className="h-4 w-4 stroke-foreground transition group-hover:stroke-primary" />
               </button>
 
               {/* 项目卡片 - 在容器约束内 */}
@@ -34,8 +35,8 @@ export default function OralSmartDiagnosis() {
                 {/* 标题区 */}
                 <div className="bg-gradient-to-r from-primary to-primary/80 text-primary-foreground px-8 py-16 text-center relative overflow-hidden">
                   <h1 className="text-3xl md:text-4xl font-bold mb-4 relative">口腔智慧诊断平台</h1>
-                  <p className="text-xl opacity-90 relative">2024.12-至今</p>
-                  <p className="mt-4 text-lg opacity-90 max-w-3xl mx-auto relative">
+                  <p className="text-xl opacity-90 relative">2024.12-2025.09</p>
+                  <p className="mt-4 text-lg opacity-90 max-w-3xl mx-auto relative break-words">
                     平台依托计算机视觉（CV），支持用户通过拍摄或上传口腔图像，自动识别牙位及口腔病灶，并生成结构化报告。
                   </p>
                 </div>
@@ -112,6 +113,9 @@ export default function OralSmartDiagnosis() {
           </div>
         </div>
       </div>
+      
+      {/* 悬浮返回按钮 - 滚动时显示 */}
+      <FloatingBackButton ariaLabel="返回项目列表" />
     </div>
   )
 }

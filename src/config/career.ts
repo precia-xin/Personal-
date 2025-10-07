@@ -13,8 +13,8 @@ export const careerList: Array<CareerItemType> = [
       company: 'Medcare',
       title: 'Software Test Engineer',
       logo: 'bank',
-      start: '2022',
-      end: 'Present'
+      start: '2022-06',
+      end: '2025-09'
     },
 //     {
 //       company: 'Bigo Live',

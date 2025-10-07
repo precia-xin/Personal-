@@ -40,7 +40,7 @@ export default async function BlogPage({ params }: Props) {
     <BlogLayout
         blog={blog}
     >
-      <div className="mt-8 prose dark:prose-invert">
+      <div className="mt-8 max-w-none">
         {content}
       </div>
     </BlogLayout>

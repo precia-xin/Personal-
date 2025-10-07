@@ -1,0 +1,273 @@
+---
+title: 'Python 常用数据类型详解'
+description: '深入了解Python中的常用数据类型，包括基础类型、容器类型和自定义类型的使用方法和最佳实践。'
+author: 'Precia'
+date: '2024-10-08'
+---
+
+Python作为一门动态类型语言，提供了丰富的内置数据类型。本文将详细介绍Python中的常用数据类型及其使用方法。
+
+## 🔢 基础数据类型
+
+### 数字类型 (Numbers)
+
+Python支持三种数字类型：
+
+#### 整数 (int)
+```python
+# 基本整数
+age = 25
+population = 1000000
+
+# 二进制、八进制、十六进制表示
+binary = 0b1010  # 10
+octal = 0o12     # 10
+hex_num = 0xa    # 10
+```
+
+#### 浮点数 (float)
+```python
+# 基本浮点数
+price = 19.99
+pi = 3.14159
+
+# 科学计数法
+large_num = 1.5e6  # 1500000.0
+small_num = 2.3e-4 # 0.00023
+```
+
+#### 复数 (complex)
+```python
+# 复数表示
+c1 = 3 + 4j
+c2 = complex(3, 4)
+print(c1.real)  # 3.0
+print(c1.imag)  # 4.0
+```
+
+### 布尔类型 (bool)
+```python
+# 布尔值
+is_active = True
+is_deleted = False
+
+# 布尔运算
+result = True and False  # False
+result = True or False   # True
+result = not True        # False
+```
+
+### 字符串 (str)
+```python
+# 字符串创建
+name = "Python"
+description = 'Programming Language'
+multiline = """
+这是一个
+多行字符串
+"""
+
+# 字符串操作
+greeting = "Hello" + " " + "World"
+repeated = "Python" * 3  # "PythonPythonPython"
+```
+
+## 📦 容器数据类型
+
+### 列表 (list)
+列表是有序、可变的数据集合。
+
+```python
+# 创建列表
+fruits = ['apple', 'banana', 'orange']
+numbers = [1, 2, 3, 4, 5]
+mixed = [1, 'hello', 3.14, True]
+
+# 列表操作
+fruits.append('grape')        # 添加元素
+fruits.insert(1, 'mango')    # 插入元素
+fruits.remove('banana')      # 删除元素
+popped = fruits.pop()        # 弹出最后一个元素
+
+# 列表切片
+subset = numbers[1:4]        # [2, 3, 4]
+reversed_list = numbers[::-1] # [5, 4, 3, 2, 1]
+```
+
+### 元组 (tuple)
+元组是有序、不可变的数据集合。
+
+```python
+# 创建元组
+coordinates = (10, 20)
+colors = ('red', 'green', 'blue')
+single_item = (42,)  # 注意逗号
+
+# 元组解包
+x, y = coordinates
+r, g, b = colors
+
+# 命名元组
+from collections import namedtuple
+Point = namedtuple('Point', ['x', 'y'])
+p = Point(10, 20)
+print(p.x, p.y)  # 10 20
+```
+
+### 字典 (dict)
+字典是键值对的无序集合。
+
+```python
+# 创建字典
+person = {
+    'name': 'Alice',
+    'age': 30,
+    'city': 'New York'
+}
+
+# 字典操作
+person['email'] = 'alice@example.com'  # 添加
+age = person.get('age', 0)             # 获取
+del person['city']                     # 删除
+
+# 字典遍历
+for key, value in person.items():
+    print(f"{key}: {value}")
+```
+
+### 集合 (set)
+集合是无序、不重复元素的集合。
+
+```python
+# 创建集合
+unique_numbers = {1, 2, 3, 4, 5}
+empty_set = set()  # 注意：{}创建的是空字典
+
+# 集合操作
+unique_numbers.add(6)        # 添加元素
+unique_numbers.discard(3)    # 删除元素
+
+# 集合运算
+set1 = {1, 2, 3, 4}
+set2 = {3, 4, 5, 6}
+union = set1 | set2          # 并集 {1, 2, 3, 4, 5, 6}
+intersection = set1 & set2   # 交集 {3, 4}
+difference = set1 - set2     # 差集 {1, 2}
+```
+
+## 🔧 特殊数据类型
+
+### None 类型
+```python
+# None表示空值
+result = None
+value = None if condition else "default"
+
+def function_without_return():
+    pass
+# 这个函数返回None
+```
+
+### 字节类型 (bytes)
+```python
+# 字节串
+data = b"Hello World"
+encoded = "Hello".encode('utf-8')
+decoded = encoded.decode('utf-8')
+
+# 字节数组
+byte_array = bytearray(b"Hello")
+byte_array[0] = ord('h')  # 修改第一个字节
+```
+
+## 📊 类型转换
+
+### 隐式转换
+```python
+# 数字类型自动转换
+result = 10 + 3.14  # 结果是float: 13.14
+result = True + 1   # 结果是int: 2
+```
+
+### 显式转换
+```python
+# 转换为整数
+num_str = "123"
+num_int = int(num_str)
+
+# 转换为浮点数
+num_float = float("3.14")
+
+# 转换为字符串
+str_num = str(123)
+
+# 转换为列表
+char_list = list("hello")  # ['h', 'e', 'l', 'l', 'o']
+
+# 转换为元组
+num_tuple = tuple([1, 2, 3])  # (1, 2, 3)
+```
+
+## 🔍 类型检查
+
+### 使用 type() 函数
+```python
+data = [1, 2, 3]
+print(type(data))  # <class 'list'>
+print(type(data) == list)  # True
+```
+
+### 使用 isinstance() 函数
+```python
+data = [1, 2, 3]
+print(isinstance(data, list))  # True
+print(isinstance(data, (list, tuple)))  # True
+```
+
+## 💡 最佳实践
+
+### 1. 选择合适的数据类型
+- 使用 `list` 存储有序、可变的数据
+- 使用 `tuple` 存储有序、不可变的数据
+- 使用 `dict` 存储键值对映射关系
+- 使用 `set` 存储唯一值集合
+
+### 2. 性能考虑
+```python
+# 列表推导式比循环更快
+squares = [x**2 for x in range(10)]
+
+# 集合查找比列表查找更快
+valid_ids = {1, 2, 3, 4, 5}
+if user_id in valid_ids:  # O(1) 时间复杂度
+    process_user()
+```
+
+### 3. 内存优化
+```python
+# 使用生成器节省内存
+def fibonacci():
+    a, b = 0, 1
+    while True:
+        yield a
+        a, b = b, a + b
+
+# 使用 __slots__ 优化类
+class Point:
+    __slots__ = ['x', 'y']
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+```
+
+## 📝 总结
+
+Python的数据类型系统既灵活又强大：
+
+- **基础类型**：int, float, complex, bool, str
+- **容器类型**：list, tuple, dict, set
+- **特殊类型**：None, bytes, bytearray
+
+理解和熟练使用这些数据类型是Python编程的基础。选择合适的数据类型不仅能让代码更加清晰，还能提高程序的性能和可维护性。
+
+在实际开发中，建议根据数据的特性（是否有序、是否可变、是否允许重复等）来选择最合适的数据类型，这样可以写出更加优雅和高效的Python代码。
