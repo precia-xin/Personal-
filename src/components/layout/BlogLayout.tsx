@@ -66,8 +66,8 @@ export function BlogLayout({
             </div>
           </div>
           
-          {/* 目录导航 - 绝对定位，仅在足够大的屏幕上显示 */}
-          <div className="hidden 2xl:block xl:fixed xl:top-32 xl:right-6 2xl:right-12 xl:z-10">
+          {/* 目录导航 - 绝对定位，在大屏幕上显示 */}
+          <div className="hidden xl:block xl:fixed xl:top-32 xl:right-6 2xl:right-12 xl:z-10">
             <TableOfContents className="max-h-[calc(100vh-10rem)] overflow-y-auto" />
           </div>
         </div>

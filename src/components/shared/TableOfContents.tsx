@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { ChevronDown, ChevronRight } from 'lucide-react'
 
 interface TableOfContentsProps {
@@ -23,6 +23,12 @@ export function TableOfContents({ className = '' }: TableOfContentsProps) {
   const [activeId, setActiveId] = useState<string>('')
   const [clickedId, setClickedId] = useState<string>('')
   const [collapsed, setCollapsed] = useState<CollapsedState>({})
+  const [isClient, setIsClient] = useState(false)
+
+  // 确保组件在客户端渲染
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
 
   // 构建层级目录结构
   const buildHierarchy = (items: TocItem[]): TocItem[] => {
@@ -52,7 +58,7 @@ export function TableOfContents({ className = '' }: TableOfContentsProps) {
   }
 
   // 展开父级目录
-  const expandParents = (targetId: string) => {
+  const expandParents = useCallback((targetId: string) => {
     const findParentIds = (items: TocItem[], target: string, parents: string[] = []): string[] => {
       for (const item of items) {
         if (item.id === target) {
@@ -78,7 +84,7 @@ export function TableOfContents({ className = '' }: TableOfContentsProps) {
         return newCollapsed
       })
     }
-  }
+  }, [toc])
 
   // 切换折叠状态
   const toggleCollapsed = (id: string) => {
@@ -110,37 +116,48 @@ export function TableOfContents({ className = '' }: TableOfContentsProps) {
   }
 
   useEffect(() => {
-    // 获取页面中的所有标题
-    const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
-    const tocItems: TocItem[] = []
+    // 确保只在客户端执行
+    if (typeof window === 'undefined') return
+    
+    // 等待DOM完全加载
+    const timer = setTimeout(() => {
+      // 获取页面中的所有标题
+      const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
+      const tocItems: TocItem[] = []
 
-    headings.forEach((heading, index) => {
-      // 如果标题没有 id，给它添加一个
-      if (!heading.id) {
-        heading.id = `heading-${index}`
-      }
+      headings.forEach((heading, index) => {
+        // 如果标题没有 id，给它添加一个
+        if (!heading.id) {
+          heading.id = `heading-${index}`
+        }
 
-      const level = parseInt(heading.tagName.charAt(1))
-      const item = {
-        id: heading.id,
-        text: heading.textContent || '',
-        level: level
-      }
+        const level = parseInt(heading.tagName.charAt(1))
+        const item = {
+          id: heading.id,
+          text: heading.textContent || '',
+          level: level
+        }
+        
+        tocItems.push(item)
+      })
+
+      const hierarchicalToc = buildHierarchy(tocItems)
       
-      tocItems.push(item)
-    })
-
-    const hierarchicalToc = buildHierarchy(tocItems)
+      // 设置默认展开状态：所有目录项默认展开
+      const initialCollapsed: CollapsedState = {}
+      // 不设置任何项为折叠状态，即所有项默认展开
+      
+      setToc(hierarchicalToc)
+      setCollapsed(initialCollapsed)
+    }, 100) // 等待100ms确保MDX内容渲染完成
     
-    // 设置默认展开状态：所有目录项默认展开
-    const initialCollapsed: CollapsedState = {}
-    // 不设置任何项为折叠状态，即所有项默认展开
-    
-    setToc(hierarchicalToc)
-    setCollapsed(initialCollapsed)
+    return () => clearTimeout(timer)
   }, [])
 
   useEffect(() => {
+    // 确保只在客户端执行
+    if (typeof window === 'undefined') return
+    
     const handleScroll = () => {
       const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
       const scrollY = window.scrollY + 150 // 增加偏移量以更准确地识别当前位置
@@ -194,7 +211,7 @@ export function TableOfContents({ className = '' }: TableOfContentsProps) {
       window.removeEventListener('scroll', throttledHandleScroll)
       clearTimeout(timeoutId)
     }
-  }, [toc, activeId])
+  }, [toc, activeId, expandParents])
 
   // 渲染目录项
   const renderTocItem = (item: TocItem, depth = 0) => {
@@ -244,7 +261,8 @@ export function TableOfContents({ className = '' }: TableOfContentsProps) {
     )
   }
 
-  if (toc.length === 0) return null
+  // 在客户端准备好之前不显示内容，防止SSR/CSR不一致
+  if (!isClient || toc.length === 0) return null
 
   return (
     <div className={`sticky top-8 ${className}`}>
